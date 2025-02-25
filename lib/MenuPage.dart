@@ -1,4 +1,8 @@
+import 'dart:convert';
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MenuPage extends StatelessWidget {
   @override
@@ -284,7 +288,7 @@ class MenuPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Image.asset(
-                            breakfastImg[position],
+                            lunchImg[position],
                             fit: BoxFit.cover,
                             height: 110,
                             width: 110,
@@ -293,7 +297,7 @@ class MenuPage extends StatelessWidget {
                             height: 10,
                           ),
                           Text(
-                            breakfastMenu[position],
+                            lunchMenu[position],
                             textAlign: TextAlign.center,
                           )
                         ],
@@ -316,7 +320,7 @@ class MenuPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Image.asset(
-                            breakfastImg[position],
+                            snackImg[position],
                             fit: BoxFit.cover,
                             height: 110,
                             width: 110,
@@ -325,7 +329,7 @@ class MenuPage extends StatelessWidget {
                             height: 10,
                           ),
                           Text(
-                            breakfastMenu[position],
+                            snackMenu[position],
                             textAlign: TextAlign.center,
                           )
                         ],
@@ -356,6 +360,33 @@ class MenuPage extends StatelessWidget {
               })
         ]),
       ),
+    );
+  }
+}
+
+
+class Data extends StatefulWidget{
+  const Data({super.key});
+  @override
+  State<Data> createState() => DataProcessing();
+}
+
+class DataProcessing extends State<Data>{
+
+  List items = [];
+
+  Future<void> readJson() async{
+    final String response = await rootBundle.loadString("assets/recipes.json");
+    final data = await json.decode(response);
+
+    setState(() {
+      items = data['recipes'];
+    });
+  }
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+
     );
   }
 }
