@@ -4,7 +4,110 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class MenuPage extends StatelessWidget {
+class MenuPage extends StatefulWidget{
+  const MenuPage({super.key});
+
+  @override
+  State<MenuPage> createState() => MenuPage_();
+}
+
+
+
+class MenuPage_ extends State<MenuPage> {
+
+  List items_ = [];
+
+  Future<void> readJson() async{
+    final String jsonData = await rootBundle.loadString("assets/recipes.json");
+    final preprocessedData = await json.decode(jsonData);
+
+    setState(() {
+      items_ = preprocessedData["recipes"];
+
+    });
+
+  }
+
+  @override void initState() {
+    super.initState();
+    readJson();
+  }
+
+
+  void onFoodType(String foodName){
+    var selectedFoodItem = items_.firstWhere(
+        (recipe) => recipe["name"].trim().toLowerCase() == foodName.trim().toLowerCase(),
+        orElse: () => null
+    );
+
+    if(selectedFoodItem != null){
+      List<String> ingredients = List<String>.from(selectedFoodItem["ingredients"]);
+
+      List<String> instructions = List<String>.from(selectedFoodItem["instructions"]);
+
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => displayFood(
+         foodName,
+         "assets/images/${foodName.replaceAll(" ", "_")}.jpg",
+         ingredients,
+         instructions
+      )));
+    }else{
+      print("Recipe not found $foodName");
+    }
+
+  }
+
+  Widget displayFood(String foodName, String image, List<String> ingredients, List<String> instruction){
+    return Card(
+      elevation: 400,
+      color: Colors.white,
+      shadowColor: Colors.white,
+      child: SizedBox(
+        height: double.infinity,
+        width: double.infinity,
+        child:
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                radius: 88,
+                child: CircleAvatar(
+                  radius: 80,
+                  backgroundImage: AssetImage(image),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Align(
+              alignment: Alignment.center,
+
+              child: Text(foodName, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black),),
+            ),
+            SizedBox(height: 20,),
+            SizedBox(
+              height: 400,
+              child: ListView.builder(itemBuilder: (context, position){
+                return Card(
+                  elevation: 400,
+                  shadowColor: Colors.white,
+                  color: Colors.white,
+                  child: Padding(padding: EdgeInsets.all(20),
+                  child: Text(ingredients[position], style: TextStyle(fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 18, color: Colors.black26),),
+                  ),
+                );
+              })
+              ),
+          ],
+        )
+        ,
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     List<String> breakfastMenu = [
@@ -16,7 +119,7 @@ class MenuPage extends StatelessWidget {
     ];
 
     List<String> breakfastImg = [
-      "assets/images/Pancakes_with_Maple_Syrup_&_Berries.png",
+      "assets/images/Pancakes_with_Maple_Syrup_&_Berries.jpg",
       "assets/images/Oats_&_Chia_Pudding_with_Honey.jpg",
       "assets/images/Masala_Omelette_with_Toast.jpg",
       "assets/images/Avocado_Toast_with_Poached_Egg.jpg",
@@ -62,157 +165,7 @@ class MenuPage extends StatelessWidget {
       "Stir-Fried Noodles with Tofu & Veggies"
     ];
 
-    Widget displayFood(
-        List<String> foodType, List<String> foodName, int position) {
-      return Card(
-        elevation: 300,
-        shadowColor: Colors.white,
-        color: Colors.white,
-        child: SizedBox(
-          height: 400,
-          child: Padding(
-              padding: EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 108,
-                    child: CircleAvatar(
-                      radius: 100,
-                      backgroundImage: AssetImage(foodType[position]),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      foodName[position],
-                      style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    height: 400,
-                    child: ListView(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(15),
-                          child: Text(
-                            "Ingredients:",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(15),
-                          child: Text(
-                            "For the Pancakes:\n1 cup all-purpose flour\n1 tablespoon sugar\n1 teaspoon baking powder\n½ teaspoon baking soda\n¼ teaspoon salt\n¾ cup milk (or buttermilk for extra fluffiness)\n1 egg\n1 teaspoon vanilla extract\n1 tablespoon melted butter or oil",
-                            style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(15),
-                          child: Text(
-                            "For the Toppings:",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(15),
-                          child: Text(
-                            "¼ cup maple syrup\n½ cup fresh berries (strawberries, blueberries, raspberries)\n1 tablespoon butter (optional)",
-                            style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(15),
-                          child: Text(
-                            "Instructions:",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(15),
-                          child: Text(
-                            "Prepare the Batter:\n\nIn a mixing bowl, whisk together flour, sugar, baking powder, baking soda, and salt.\nIn another bowl, whisk the egg, milk, vanilla extract, and melted butter.\nGradually add the wet ingredients to the dry ingredients and stir until just combined (do not overmix).\nCook the Pancakes:\nHeat a non-stick pan or griddle over medium heat and lightly grease it with butter or oil.\nPour about ¼ cup of batter onto the pan for each pancake.\nCook until bubbles form on the surface and the edges start to set (about 2 minutes).\nFlip and cook the other side for another 1-2 minutes until golden brown.\n\nAssemble & Serve:\n\nStack the pancakes on a plate.\nDrizzle with warm maple syrup.\nTop with fresh berries and a little butter if desired.",
-                            style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(15),
-                          child: Text(
-                            "\nTips:",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(15),
-                          child: Text(
-                            "Use buttermilk instead of milk for extra fluffy pancakes.\nDon't overmix the batter to keep the pancakes light and airy.\nServe immediately for the best texture and taste.\n\nEnjoy your Pancakes with Maple Syrup & Berries! 🥞🍓🍯",
-                            style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  ElevatedButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      style: ElevatedButton.styleFrom(
-                          elevation: 200,
-                          shadowColor: Colors.black,
-                          side: BorderSide(color: Colors.black, width: 2),
-                          alignment: Alignment.center,
-                          textStyle: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          )),
-                      child: Text(
-                        "Close",
-                        style: TextStyle(
-                            color: Colors.black, backgroundColor: Colors.white),
-                      ))
-                ],
-              )),
-        ),
-      );
-    }
+
 
     return DefaultTabController(
       length: 4,
@@ -241,9 +194,7 @@ class MenuPage extends StatelessWidget {
             itemBuilder: (context, position) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>
-                          displayFood(breakfastImg, breakfastMenu, position)));
+                  onFoodType(breakfastMenu[position]);
                 },
                 child: Container(
                     height: 250,
@@ -365,28 +316,3 @@ class MenuPage extends StatelessWidget {
 }
 
 
-class Data extends StatefulWidget{
-  const Data({super.key});
-  @override
-  State<Data> createState() => DataProcessing();
-}
-
-class DataProcessing extends State<Data>{
-
-  List items = [];
-
-  Future<void> readJson() async{
-    final String response = await rootBundle.loadString("assets/recipes.json");
-    final data = await json.decode(response);
-
-    setState(() {
-      items = data['recipes'];
-    });
-  }
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-
-    );
-  }
-}

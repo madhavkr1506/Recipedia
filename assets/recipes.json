@@ -2,204 +2,95 @@
   "recipes": [
     {
       "name": "Pancakes with Maple Syrup & Berries",
-      "ingredients": {
-        "pancakes": [
-          "1 cup all-purpose flour",
-          "1 tablespoon sugar",
-          "1 teaspoon baking powder",
-          "½ teaspoon baking soda",
-          "¼ teaspoon salt",
-          "¾ cup milk (or buttermilk for extra fluffiness)",
-          "1 egg",
-          "1 teaspoon vanilla extract",
-          "1 tablespoon melted butter or oil"
-        ],
-        "toppings": [
-          "¼ cup maple syrup",
-          "½ cup fresh berries (strawberries, blueberries, raspberries)",
-          "1 tablespoon butter (optional)"
-        ]
-      },
-      "instructions": {
-        "prepare_the_batter": [
-          "In a mixing bowl, whisk together flour, sugar, baking powder, baking soda, and salt.",
-          "In another bowl, whisk the egg, milk, vanilla extract, and melted butter.",
-          "Gradually add the wet ingredients to the dry ingredients and stir until just combined (do not overmix)."
-        ],
-        "cook_the_pancakes": [
-          "Heat a non-stick pan or griddle over medium heat and lightly grease it with butter or oil.",
-          "Pour about ¼ cup of batter onto the pan for each pancake.",
-          "Cook until bubbles form on the surface and the edges start to set (about 2 minutes).",
-          "Flip and cook the other side for another 1-2 minutes until golden brown."
-        ],
-        "assemble_and_serve": [
-          "Stack the pancakes on a plate.",
-          "Drizzle with warm maple syrup.",
-          "Top with fresh berries and a little butter if desired."
-        ]
-      },
-      "tips": [
-        "Use buttermilk instead of milk for extra fluffy pancakes.",
-        "Don't overmix the batter to keep the pancakes light and airy.",
-        "Serve immediately for the best texture and taste."
+      "ingredients": [
+        "1 cup all-purpose flour",
+        "1 tbsp sugar",
+        "1 tsp baking powder",
+        "1/2 tsp baking soda",
+        "1 cup milk",
+        "1 egg",
+        "1 tbsp melted butter",
+        "1/2 tsp vanilla extract",
+        "Maple syrup",
+        "Fresh berries"
       ],
-      "enjoy_message": "Enjoy your Pancakes with Maple Syrup & Berries! 🥞🍓🍯"
+      "instructions": [
+        "In a bowl, mix flour, sugar, baking powder, and baking soda.",
+        "In another bowl, whisk milk, egg, melted butter, and vanilla extract.",
+        "Combine wet and dry ingredients and mix until smooth.",
+        "Heat a skillet and pour batter to form pancakes.",
+        "Cook until bubbles form, then flip and cook the other side.",
+        "Serve with maple syrup and fresh berries."
+      ]
     },
     {
       "name": "Oats & Chia Pudding with Honey",
-      "ingredients": {
-        "pudding": [
-          "½ cup rolled oats",
-          "2 tablespoons chia seeds",
-          "1 cup milk (or almond milk for a dairy-free option)",
-          "1 tablespoon honey or maple syrup",
-          "½ teaspoon vanilla extract"
-        ],
-        "toppings": [
-          "½ banana, sliced",
-          "¼ cup fresh berries (blueberries, raspberries, or strawberries)",
-          "1 tablespoon nuts or seeds (almonds, walnuts, or flaxseeds)",
-          "1 teaspoon honey (for drizzling)"
-        ]
-      },
-      "instructions": {
-        "prepare_the_pudding": [
-          "In a bowl or jar, mix rolled oats, chia seeds, milk, honey, and vanilla extract.",
-          "Stir well to combine, cover, and refrigerate overnight (or at least 4 hours) until thickened."
-        ],
-        "assemble_and_serve": [
-          "Once the pudding has thickened, give it a good stir.",
-          "Top with banana slices, fresh berries, and nuts/seeds.",
-          "Drizzle with extra honey for sweetness."
-        ]
-      },
-      "tips": [
-        "Adjust the sweetness by adding more or less honey.",
-        "Use coconut milk for a rich and creamy texture.",
-        "Can be stored in the fridge for up to 3 days."
+      "ingredients": [
+        "1/2 cup rolled oats",
+        "2 tbsp chia seeds",
+        "1 cup milk or almond milk",
+        "1 tbsp honey",
+        "1/2 tsp vanilla extract",
+        "Fresh fruits for topping"
       ],
-      "enjoy_message": "Enjoy your Oats & Chia Pudding with Honey! 🥣🍯🍌"
+      "instructions": [
+        "Mix oats, chia seeds, milk, honey, and vanilla in a jar.",
+        "Stir well and refrigerate overnight.",
+        "Stir again in the morning and top with fresh fruits.",
+        "Serve chilled."
+      ]
     },
     {
       "name": "Masala Omelette with Toast",
-      "ingredients": {
-        "omelette": [
-          "2 eggs",
-          "¼ teaspoon salt",
-          "¼ teaspoon black pepper",
-          "¼ teaspoon red chili powder (optional)",
-          "1 tablespoon chopped onions",
-          "1 tablespoon chopped tomatoes",
-          "1 tablespoon chopped green chilies",
-          "1 tablespoon chopped cilantro (coriander)",
-          "1 tablespoon butter or oil"
-        ],
-        "serving": [
-          "2 slices of toasted bread",
-          "1 teaspoon butter"
-        ]
-      },
-      "instructions": {
-        "prepare_the_omelette_mixture": [
-          "In a bowl, whisk the eggs with salt, pepper, and red chili powder.",
-          "Add chopped onions, tomatoes, green chilies, and cilantro. Mix well."
-        ],
-        "cook_the_omelette": [
-          "Heat butter or oil in a non-stick pan over medium heat.",
-          "Pour the egg mixture into the pan and spread it evenly.",
-          "Cook for about 2 minutes until the edges start to set.",
-          "Flip the omelette and cook for another 1-2 minutes."
-        ],
-        "assemble_and_serve": [
-          "Toast the bread slices and spread butter on top.",
-          "Serve the omelette with toasted bread."
-        ]
-      },
-      "tips": [
-        "Add grated cheese for a richer taste.",
-        "Serve with ketchup or green chutney for extra flavor.",
-        "Use a non-stick pan to prevent sticking."
+      "ingredients": [
+        "2 eggs",
+        "1/4 cup chopped onion",
+        "1/4 cup chopped tomatoes",
+        "1 green chili, chopped",
+        "1/4 tsp turmeric powder",
+        "Salt to taste",
+        "1 tbsp oil",
+        "2 slices of bread"
       ],
-      "enjoy_message": "Enjoy your Masala Omelette with Toast! 🍳🍞🌿"
+      "instructions": [
+        "Beat eggs in a bowl and add onion, tomatoes, chili, turmeric, and salt.",
+        "Heat oil in a pan and pour the egg mixture.",
+        "Cook until golden brown on both sides.",
+        "Serve with toasted bread."
+      ]
     },
     {
       "name": "Avocado Toast with Poached Egg",
-      "ingredients": {
-        "toast": [
-          "1 ripe avocado",
-          "2 slices whole-grain bread",
-          "½ teaspoon lemon juice",
-          "¼ teaspoon salt",
-          "¼ teaspoon black pepper"
-        ],
-        "poached_egg": [
-          "2 eggs",
-          "2 cups water",
-          "1 teaspoon vinegar"
-        ],
-        "garnishing": [
-          "¼ teaspoon red pepper flakes (optional)",
-          "1 teaspoon chopped parsley or cilantro"
-        ]
-      },
-      "instructions": {
-        "prepare_the_avocado_spread": [
-          "Mash the ripe avocado in a bowl.",
-          "Add lemon juice, salt, and black pepper. Mix well."
-        ],
-        "poach_the_eggs": [
-          "In a saucepan, bring water to a gentle simmer. Add vinegar.",
-          "Crack an egg into a small bowl, then gently slide it into the water.",
-          "Cook for 3-4 minutes until the egg whites are set but the yolk remains runny.",
-          "Remove with a slotted spoon and drain on a paper towel."
-        ],
-        "assemble_and_serve": [
-          "Toast the bread slices until golden brown.",
-          "Spread the mashed avocado evenly on each slice.",
-          "Place a poached egg on top.",
-          "Garnish with red pepper flakes and chopped parsley."
-        ]
-      },
-      "tips": [
-        "Use fresh eggs for better poaching.",
-        "Sprinkle feta cheese or sesame seeds for extra flavor.",
-        "Serve immediately for the best taste."
+      "ingredients": [
+        "1 ripe avocado",
+        "2 slices of bread",
+        "1 egg",
+        "1 tsp lemon juice",
+        "Salt and pepper to taste",
+        "Chili flakes (optional)"
       ],
-      "enjoy_message": "Enjoy your Avocado Toast with Poached Egg! 🥑🍞🥚"
+      "instructions": [
+        "Mash the avocado with lemon juice, salt, and pepper.",
+        "Toast the bread slices.",
+        "Poach the egg in simmering water.",
+        "Spread avocado mixture on toast and top with poached egg.",
+        "Sprinkle chili flakes if desired."
+      ]
     },
     {
       "name": "Banana & Peanut Butter Smoothie Bowl",
-      "ingredients": {
-        "smoothie_base": [
-          "2 frozen bananas",
-          "½ cup milk (or almond milk for dairy-free)",
-          "2 tablespoons peanut butter",
-          "½ teaspoon vanilla extract"
-        ],
-        "toppings": [
-          "1 tablespoon granola",
-          "½ banana, sliced",
-          "1 teaspoon chia seeds",
-          "1 teaspoon honey (optional)"
-        ]
-      },
-      "instructions": {
-        "prepare_the_smoothie_base": [
-          "In a blender, combine frozen bananas, milk, peanut butter, and vanilla extract.",
-          "Blend until smooth and creamy."
-        ],
-        "assemble_and_serve": [
-          "Pour the smoothie into a bowl.",
-          "Top with sliced banana, granola, and chia seeds.",
-          "Drizzle with honey if desired."
-        ]
-      },
-      "tips": [
-        "Use frozen bananas for a thick and creamy texture.",
-        "Add protein powder for an extra protein boost.",
-        "Can be made vegan by using plant-based milk."
+      "ingredients": [
+        "2 ripe bananas",
+        "1/2 cup yogurt",
+        "2 tbsp peanut butter",
+        "1/2 cup milk",
+        "Granola and fruits for topping"
       ],
-      "enjoy_message": "Enjoy your Banana & Peanut Butter Smoothie Bowl! 🍌🥜🥣"
+      "instructions": [
+        "Blend bananas, yogurt, peanut butter, and milk until smooth.",
+        "Pour into a bowl and top with granola and fresh fruits.",
+        "Serve immediately."
+      ]
     }
   ]
 }
