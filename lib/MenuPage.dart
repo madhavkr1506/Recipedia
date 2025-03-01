@@ -4,110 +4,201 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class MenuPage extends StatefulWidget{
+class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
 
   @override
   State<MenuPage> createState() => MenuPage_();
 }
 
-
-
 class MenuPage_ extends State<MenuPage> {
-
   List items_ = [];
 
-  Future<void> readJson() async{
+  Future<void> readJson() async {
     final String jsonData = await rootBundle.loadString("assets/recipes.json");
     final preprocessedData = await json.decode(jsonData);
 
     setState(() {
       items_ = preprocessedData["recipes"];
-
     });
-
   }
 
-  @override void initState() {
+  @override
+  void initState() {
     super.initState();
     readJson();
   }
 
-
-  void onFoodType(String foodName){
+  void onFoodType(String foodName) {
     var selectedFoodItem = items_.firstWhere(
-        (recipe) => recipe["name"].trim().toLowerCase() == foodName.trim().toLowerCase(),
-        orElse: () => null
-    );
+        (recipe) =>
+            recipe["name"].trim().toLowerCase() ==
+            foodName.trim().toLowerCase(),
+        orElse: () => null);
 
-    if(selectedFoodItem != null){
-      List<String> ingredients = List<String>.from(selectedFoodItem["ingredients"]);
+    if (selectedFoodItem != null) {
+      List<String> ingredients =
+          List<String>.from(selectedFoodItem["ingredients"]);
 
-      List<String> instructions = List<String>.from(selectedFoodItem["instructions"]);
+      List<String> instructions =
+          List<String>.from(selectedFoodItem["instructions"]);
 
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => displayFood(
-         foodName,
-         "assets/images/${foodName.replaceAll(" ", "_")}.jpg",
-         ingredients,
-         instructions
-      )));
-    }else{
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => displayFood(
+              foodName,
+              "assets/images/${foodName.replaceAll(" ", "_")}.jpg",
+              ingredients,
+              instructions)));
+    } else {
       print("Recipe not found $foodName");
     }
-
   }
 
-  Widget displayFood(String foodName, String image, List<String> ingredients, List<String> instruction){
+  Widget displayFood(String foodName, String image, List<String> ingredients,
+      List<String> instruction) {
     return Card(
       elevation: 400,
-      color: Colors.white,
+      color: Colors.red,
       shadowColor: Colors.white,
-      child: SizedBox(
-        height: double.infinity,
-        width: double.infinity,
-        child:
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                radius: 88,
-                child: CircleAvatar(
-                  radius: 80,
-                  backgroundImage: AssetImage(image),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Align(
-              alignment: Alignment.center,
-
-              child: Text(foodName, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black),),
-            ),
-            SizedBox(height: 20,),
-            SizedBox(
-              height: 400,
-              child: ListView.builder(itemBuilder: (context, position){
-                return Card(
-                  elevation: 400,
-                  shadowColor: Colors.white,
-                  color: Colors.white,
-                  child: Padding(padding: EdgeInsets.all(20),
-                  child: Text(ingredients[position], style: TextStyle(fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 18, color: Colors.black26),),
+      child: Padding(
+        padding: const EdgeInsets.all(26.0),
+        child: Container(
+          height: 500,
+          width: 300,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(color: Colors.white, width: 2),
+            borderRadius: BorderRadius.circular(16)
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 10,),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CircleAvatar(
+                    backgroundColor: Colors.red,
+                    radius: 68,
+                    child: CircleAvatar(
+                      radius: 60,
+                      backgroundImage: AssetImage(image),
+                    ),
                   ),
-                );
-              })
-              ),
-          ],
-        )
-        ,
+                ),
+                SizedBox(
+                  height: 7,
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    foodName,
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(
+                  height: 7,
+                  width: double.infinity,
+                ),
+                SizedBox(
+                  height: 15,
+                  child: Text(
+                    "Ingredients",
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                SizedBox(
+                    height: 170,
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: ListView.builder(
+                        itemBuilder: (context, position) {
+                          return Card(
+                            elevation: 400,
+                            shadowColor: Colors.white,
+                            color: Colors.white,
+                            child: Column(
+                              children: [
+                                Text(
+                                  ingredients[position],
+                                  style: TextStyle(
+                                      fontStyle: FontStyle.normal,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 12,
+                                      color: Colors.black26),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        itemCount: ingredients.length,
+                      ),
+                    )),
+                SizedBox(
+                  height: 7,
+                ),
+                SizedBox(
+                  height: 15,
+                  child: Text(
+                    "Instructions",
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                SizedBox(
+                    height: 170,
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: ListView.builder(
+                        itemBuilder: (context, position) {
+                          return Card(
+                            elevation: 400,
+                            shadowColor: Colors.white,
+                            color: Colors.white,
+                            child: Column(
+                              children: [
+                                Text(
+                                  instruction[position],
+                                  style: TextStyle(
+                                      fontStyle: FontStyle.normal,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 12,
+                                      color: Colors.black26),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        itemCount: instruction.length,
+                      ),
+                    )),
+                SizedBox(
+                  height: 15,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text("Close", style: TextStyle(color: Colors.black54),),
+                  style: ElevatedButton.styleFrom(
+                      side: BorderSide(color: Colors.pink, width: 2),
+                      backgroundColor: Colors.white,
+                      textStyle: TextStyle(
+                          fontSize: 14,
+                          color: Colors.pinkAccent,
+                          fontStyle: FontStyle.normal)),
+                )
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     List<String> breakfastMenu = [
@@ -164,8 +255,6 @@ class MenuPage_ extends State<MenuPage> {
       "Mexican Tacos with Guacamole",
       "Stir-Fried Noodles with Tofu & Veggies"
     ];
-
-
 
     return DefaultTabController(
       length: 4,
@@ -230,30 +319,35 @@ class MenuPage_ extends State<MenuPage> {
                   crossAxisSpacing: 11),
               itemCount: lunchMenu.length,
               itemBuilder: (context, position) {
-                return Container(
-                    height: 250,
-                    width: 200,
-                    child: Card(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            lunchImg[position],
-                            fit: BoxFit.cover,
-                            height: 110,
-                            width: 110,
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            lunchMenu[position],
-                            textAlign: TextAlign.center,
-                          )
-                        ],
-                      ),
-                    ));
+                return GestureDetector(
+                  onTap: (){
+                    onFoodType(lunchMenu[position]);
+                  },
+                  child: Container(
+                      height: 250,
+                      width: 200,
+                      child: Card(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              lunchImg[position],
+                              fit: BoxFit.cover,
+                              height: 110,
+                              width: 110,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              lunchMenu[position],
+                              textAlign: TextAlign.center,
+                            )
+                          ],
+                        ),
+                      )),
+                );
               }),
           GridView.builder(
               gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
@@ -262,30 +356,35 @@ class MenuPage_ extends State<MenuPage> {
                   crossAxisSpacing: 11),
               itemCount: snackMenu.length,
               itemBuilder: (context, position) {
-                return Container(
-                    height: 250,
-                    width: 200,
-                    child: Card(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            snackImg[position],
-                            fit: BoxFit.cover,
-                            height: 110,
-                            width: 110,
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            snackMenu[position],
-                            textAlign: TextAlign.center,
-                          )
-                        ],
-                      ),
-                    ));
+                return GestureDetector(
+                  onTap: (){
+                    onFoodType(snackMenu[position]);
+                  },
+                  child: Container(
+                      height: 250,
+                      width: 200,
+                      child: Card(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              snackImg[position],
+                              fit: BoxFit.cover,
+                              height: 110,
+                              width: 110,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              snackMenu[position],
+                              textAlign: TextAlign.center,
+                            )
+                          ],
+                        ),
+                      )),
+                );
               }),
           GridView.builder(
               gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
@@ -294,8 +393,13 @@ class MenuPage_ extends State<MenuPage> {
                   crossAxisSpacing: 11),
               itemCount: dinnerMenu.length,
               itemBuilder: (context, position) {
-                return Container(
-                  child: Text(dinnerMenu[position]),
+                return GestureDetector(
+                  onTap: (){
+                    onFoodType(dinnerMenu[position]);
+                  },
+                  child: Container(
+                    child: Text(dinnerMenu[position]),
+                  ),
                 );
               }),
           GridView.builder(
@@ -314,5 +418,3 @@ class MenuPage_ extends State<MenuPage> {
     );
   }
 }
-
-
