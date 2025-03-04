@@ -1,160 +1,98 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
-import 'MenuPage.dart';
+import 'package:flutter/rendering.dart';
 
 void main() {
   runApp(LandingPage());
 }
 
-class LandingPage extends StatelessWidget {
+class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
+
+  @override
+  State<LandingPage> createState() => LandingPageUtil();
+}
+
+class LandingPageUtil extends State<LandingPage> {
+  String draggedImage = "assets/images/Spaghetti_Aglio_e_Olio.jpg";
+  List<String> images = [
+    "assets/images/Banana_&_Peanut_Butter_Smoothie_Bowl.jpg",
+    "assets/images/Bruschetta_with_Tomato_&_Basil.jpg",
+    "assets/images/Grilled_Salmon_with_Garlic_Butter.jpg",
+    "assets/images/Paneer_Butter_Masala_with_Naan.jpg",
+    "assets/images/Spaghetti_Aglio_e_Olio.jpg"
+  ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          padding: EdgeInsets.all(10),
-          margin: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: Colors.pink,
-            border: Border.all(color: Colors.red),
-          ),
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Card(
-                elevation: 400,
-                shadowColor: Colors.white,
-                color: Colors.white,
-
-                child: SizedBox(
-                    height: 600,
-                    width: double.infinity,
-                    child: Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 40,
-                          ),
-                          CircleAvatar(
-                            backgroundColor: Colors.yellow,
-                            radius: 88,
-                            child: CircleAvatar(
-                              backgroundColor: Colors.white,
-                              backgroundImage:
-                                  AssetImage('assets/images/make_food.jpg'),
-                              radius: 80,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 40,
-                          ),
-                          Align(
-                            alignment: Alignment.center,
-                            child: Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border:
-                                      Border.all(color: Colors.white, width: 5),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Text(
-                                "Culinary Craft",
-                                style: TextStyle(
-                                    fontSize: 35,
-                                    fontWeight: FontWeight.normal,
-                                    fontStyle: FontStyle.italic,
-                                    color: Colors.pink),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 40,
-                            child: Text(
-                              "🥗",
-                              style: TextStyle(
-                                  fontStyle: FontStyle.normal, fontSize: 40),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Align(
-                            alignment: Alignment.center,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white70,
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Text(
-                                "Food is not just eating energy. It's an experience.",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.pinkAccent,
-                                  fontSize: 18,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white70,
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Text(
-                                "Guy Fieri",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.pinkAccent,
-                                    fontSize: 15,
-                                    fontStyle: FontStyle.italic),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    )),
+              DragTarget<String>(onAccept: (imagePath) {
+                setState(() {
+                  draggedImage = imagePath;
+                });
+              }, builder: (context, _, __) {
+                return Container(
+                  height: 300,
+                  width: 300,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      border: Border.all(color: Colors.white),
+                      gradient: RadialGradient(
+                          colors: [Colors.red.shade50, Colors.white],
+                          center: Alignment.bottomLeft,
+                          radius: 0.8)),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: Image.asset(
+                      draggedImage,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                );
+              }),
+              const SizedBox(
+                height: 30,
               ),
               SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => MenuPage()));
-                },
-                child: Text(
-                  "Menu",
-                  style: TextStyle(color: Colors.white),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.pink,
-                  padding: EdgeInsets.all(20),
-                  side: BorderSide(color: Colors.yellow, width: 5),
-                  shadowColor: Colors.yellow,
-                  textStyle: TextStyle(
-                      fontStyle: FontStyle.normal,
-                      fontSize: 20,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
+                height: 160,
+                child: Padding(
+                  padding: EdgeInsets.all(8),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, position) {
+                      return Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Draggable(
+                            data: images[position],
+                            childWhenDragging: Opacity(
+                              opacity: 0.2,
+                              child: Image.asset(
+                                images[position],
+                                width: 100,
+                              ),
+                            ),
+                            child: Image.asset(
+                              images[position],
+                              width: 100,
+                            ),
+                            feedback: Material(
+                              child: Image.asset(
+                                images[position],
+                                width: 100,
+                              ),
+                            )),
+                      );
+                    },
+                    itemCount: images.length,
+                  ),
                 ),
               )
             ],
