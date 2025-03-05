@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:ffi';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -402,17 +402,7 @@ class MenuPage_ extends State<MenuPage> {
                   ),
                 );
               }),
-          GridView.builder(
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 300,
-                  mainAxisSpacing: 11,
-                  crossAxisSpacing: 11),
-              itemCount: breakfastMenu.length,
-              itemBuilder: (context, position) {
-                return Container(
-                  child: Text(breakfastMenu[position]),
-                );
-              })
+
         ]),
       ),
     );

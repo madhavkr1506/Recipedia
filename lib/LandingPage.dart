@@ -1,9 +1,21 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:recipe/SignInPage.dart';
 
 void main() {
-  runApp(LandingPage());
+  runApp(Page());
+}
+
+class Page extends StatelessWidget {
+  const Page({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: LandingPage(),
+    );
+  }
 }
 
 class LandingPage extends StatefulWidget {
@@ -94,7 +106,61 @@ class LandingPageUtil extends State<LandingPage> {
                     itemCount: images.length,
                   ),
                 ),
-              )
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                height: 160,
+                width: 300,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    gradient: RadialGradient(
+                        center: Alignment.centerLeft,
+                        radius: 0.8,
+                        colors: [Colors.white, Colors.white70])),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "A waffle is like a pancake with a syrup trap",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.normal,
+                            color: Colors.black26),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => SignIn()));
+                      },
+                      child: Text(
+                        "Explore Inside",
+                        style: TextStyle(color: Colors.pink),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(20),
+                        textStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal,
+                            fontStyle: FontStyle.normal),
+                        side: BorderSide(color: Colors.pink, width: 1),
+                        shadowColor: Colors.pink,
+                        overlayColor: Colors.pink,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
