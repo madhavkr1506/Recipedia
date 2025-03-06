@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:recipe/MenuPage.dart';
 import 'package:recipe/data/local/DBHelper.dart';
 
@@ -19,11 +20,18 @@ class SignInUtil extends State<SignIn> {
   var address = TextEditingController();
 
   DBHelper? db;
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     db = DBHelper.getInstance;
+  }
+
+  List<Map<String, dynamic>> allDetails = [];
+
+  Future<void> getAllDetails() async {
+    allDetails = await db!.getDetails();
+    setState(() {});
   }
 
   @override
@@ -62,8 +70,10 @@ class SignInUtil extends State<SignIn> {
                             center: Alignment.center)),
                     child: Text(
                       "One cannot think well, love well, sleep well, if one has not dined well\n- Virginia Woolf",
-                      style:
-                          TextStyle(fontStyle: FontStyle.normal, fontSize: 20, color: Colors.pink),
+                      style: TextStyle(
+                          fontStyle: FontStyle.normal,
+                          fontSize: 20,
+                          color: Colors.pink),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -87,10 +97,13 @@ class SignInUtil extends State<SignIn> {
                           padding: EdgeInsets.all(15),
                           child: TextField(
                             controller: name,
+                            style: TextStyle(color: Colors.pink),
                             decoration: InputDecoration(
                                 labelText: "Name",
                                 hintText: "Input Name",
-                                hintStyle: TextStyle(color: Colors.pinkAccent, fontStyle: FontStyle.normal),
+                                hintStyle: TextStyle(
+                                    color: Colors.pinkAccent,
+                                    fontStyle: FontStyle.normal),
                                 labelStyle: TextStyle(color: Colors.pink),
                                 icon: Icon(
                                   Icons.verified_user,
@@ -112,10 +125,13 @@ class SignInUtil extends State<SignIn> {
                           padding: EdgeInsets.all(15),
                           child: TextField(
                             controller: email,
+                            style: TextStyle(color: Colors.pink),
                             decoration: InputDecoration(
                                 labelText: "Email",
                                 hintText: "Input Email",
-                                hintStyle: TextStyle(color: Colors.pinkAccent, fontStyle: FontStyle.normal),
+                                hintStyle: TextStyle(
+                                    color: Colors.pinkAccent,
+                                    fontStyle: FontStyle.normal),
                                 labelStyle: TextStyle(color: Colors.pink),
                                 icon: Icon(
                                   Icons.email,
@@ -138,10 +154,13 @@ class SignInUtil extends State<SignIn> {
                             padding: EdgeInsets.all(15),
                             child: TextField(
                               controller: contact,
+                              style: TextStyle(color: Colors.pink),
                               decoration: InputDecoration(
                                   labelText: "Contact Number",
                                   hintText: "Input Mobile",
-                                  hintStyle: TextStyle(color: Colors.pinkAccent, fontStyle: FontStyle.normal),
+                                  hintStyle: TextStyle(
+                                      color: Colors.pinkAccent,
+                                      fontStyle: FontStyle.normal),
                                   prefixText: "+91 - ",
                                   labelStyle: TextStyle(color: Colors.pink),
                                   icon: Icon(
@@ -167,10 +186,13 @@ class SignInUtil extends State<SignIn> {
                             padding: EdgeInsets.all(15),
                             child: TextField(
                               controller: address,
+                              style: TextStyle(color: Colors.pink),
                               decoration: InputDecoration(
                                   labelText: "Address",
                                   hintText: "Input Address",
-                                  hintStyle: TextStyle(color: Colors.pinkAccent, fontStyle: FontStyle.normal),
+                                  hintStyle: TextStyle(
+                                      color: Colors.pinkAccent,
+                                      fontStyle: FontStyle.normal),
                                   labelStyle: TextStyle(color: Colors.pink),
                                   icon: Icon(
                                     Icons.location_city,
@@ -200,21 +222,58 @@ class SignInUtil extends State<SignIn> {
                             IgnorePointer(
                               ignoring: ignore,
                               child: ElevatedButton(
-                                onPressed: () {
-                                  if(buttonText == "SignUp"){
-                                    String userName = name.toString();
-                                    String userEmail = email.toString();
-                                    String userContact = contact.toString();
-                                    String userAddress = address.toString();
-                                    db?.onAddDetails(name: userName, email: userEmail, mobile_no: userContact, country: userAddress);
+                                onPressed: () async{
+                                  if (buttonText == "SignUp") {
+                                    String userName = name.text.toString().trim();
+                                    String userEmail = email.text.toString().trim();
+                                    String userContact = contact.text.toString().trim();
+                                    String userAddress = address.text.toString().trim();
+                                    await db?.onAddDetails(
+                                        name: userName,
+                                        email: userEmail,
+                                        mobile_no: userContact,
+                                        country: userAddress);
+                                    print("User added: Name: $userName, Email: $userEmail");
+                                    Fluttertoast.showToast(
+                                        msg:
+                                            "Congratulation $userName you are now a member",
+                                        toastLength: Toast.LENGTH_SHORT,
+                                        gravity: ToastGravity.BOTTOM,
+                                        textColor: Colors.white,
+                                        backgroundColor: Colors.pink);
 
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => MenuPage()));
+                                  } else if (buttonText == "LogIn"){
+                                    String userName = name.text.toString().trim();
+                                    String userEmail = email.text.toString().trim();
+                                    await getAllDetails();
+
+                                    print("Data fetched");
+
+
+                                    bool userExit = allDetails.any((user) =>
+                                    user["name"] == userName && user["email"] == userEmail
+                                    );
+
+                                    if(userExit){
+                                      Fluttertoast.showToast(
+                                          msg:
+                                          "Welcome back Mr. $userName",
+                                          toastLength: Toast.LENGTH_SHORT,
+                                          gravity: ToastGravity.BOTTOM,
+                                          textColor: Colors.white,
+                                          backgroundColor: Colors.pink);
+                                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => MenuPage()));
+                                    }else{
+                                      Fluttertoast.showToast(
+                                          msg:
+                                          "User not found! Please Sign Up",
+                                          toastLength: Toast.LENGTH_SHORT,
+                                          gravity: ToastGravity.BOTTOM,
+                                          textColor: Colors.white,
+                                          backgroundColor: Colors.pink);
+                                    }
                                   }
-                                  else if(buttonText == "LogIn"){
-                                    String userName = name.toString();
-                                    String userEmail = email.toString();
-                                  }
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => MenuPage()));
                                 },
                                 child: Text(
                                   "🥗  ${buttonText}",
@@ -247,7 +306,7 @@ class SignInUtil extends State<SignIn> {
                       setState(() {
                         Visible = false;
                         ignore = false;
-                        buttonText = "Login";
+                        buttonText = "LogIn";
                       });
                     },
                     child: Text(

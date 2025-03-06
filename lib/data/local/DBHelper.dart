@@ -34,7 +34,7 @@ class DBHelper{
     String path = join(dir.path ,"login_credentials.db");
     
     return openDatabase(path, onCreate: (db, version) async{
-      await db.execute("create table $tableName($id primary key autoincrement, $name text, $email text, $mobile_no text, $country text)");
+      await db.execute("create table $tableName($id integer primary key autoincrement, $name text, $email text, $mobile_no text, $country text)");
     }, version: 1);
   }
 
