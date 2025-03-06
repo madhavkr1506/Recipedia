@@ -253,7 +253,14 @@ class MenuPage_ extends State<MenuPage> {
       "Stuffed Bell Peppers with Quinoa & Veggies",
       "Butter Chicken with Tandoori Roti",
       "Mexican Tacos with Guacamole",
-      "Stir-Fried Noodles with Tofu & Veggies"
+      "Stir Fried Noodles with Tofu & Veggies"
+    ];
+    List<String> dinnerMenuImg = [
+      "assets/images/Grilled_Salmon_with_Garlic_Butter.jpg",
+      "assets/images/Stuffed_Bell_Peppers_with_Quinoa_&_Veggies.jpg",
+      "assets/images/Butter_Chicken_with_Tandoori_Roti.jpg",
+      "assets/images/Mexican_Tacos_with_Guacamole.jpg",
+      "assets/images/Stir_Fried_Noodles_with_Tofu_&_Veggies.jpg"
     ];
 
     return DefaultTabController(
@@ -398,7 +405,29 @@ class MenuPage_ extends State<MenuPage> {
                     onFoodType(dinnerMenu[position]);
                   },
                   child: Container(
-                    child: Text(dinnerMenu[position]),
+                      height: 250,
+                      width: 200,
+                      child: Card(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              dinnerMenuImg[position],
+                              fit: BoxFit.cover,
+                              height: 110,
+                              width: 110,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              dinnerMenu[position],
+                              textAlign: TextAlign.center,
+                            )
+                          ],
+                        ),
+                      )
                   ),
                 );
               }),

@@ -42,7 +42,7 @@ class DBHelper{
 
     try{
       final db = await getDB();
-      int rowEffected = await db.insert(tableName, {name: name, email: email, mobile_no : mobile_no, country : country});
+      int rowEffected = await db.insert(tableName, {DBHelper.name: name, DBHelper.email: email, DBHelper.mobile_no : mobile_no, DBHelper.country : country});
       return rowEffected > 0;
     }catch(e){
       print("error adding login credentials $e");

@@ -12,7 +12,7 @@ class SignIn extends StatefulWidget {
 
 class SignInUtil extends State<SignIn> {
   bool Visible = true;
-  String buttonText = "";
+  String buttonText = "SignUp";
   bool ignore = true;
   var name = TextEditingController();
   var email = TextEditingController();
@@ -31,6 +31,7 @@ class SignInUtil extends State<SignIn> {
 
   Future<void> getAllDetails() async {
     allDetails = await db!.getDetails();
+    print("All Users: $allDetails");
     setState(() {});
   }
 
@@ -72,7 +73,7 @@ class SignInUtil extends State<SignIn> {
                       "One cannot think well, love well, sleep well, if one has not dined well\n- Virginia Woolf",
                       style: TextStyle(
                           fontStyle: FontStyle.normal,
-                          fontSize: 20,
+                          fontSize: 18,
                           color: Colors.pink),
                       textAlign: TextAlign.center,
                     ),
@@ -233,7 +234,7 @@ class SignInUtil extends State<SignIn> {
                                         email: userEmail,
                                         mobile_no: userContact,
                                         country: userAddress);
-                                    print("User added: Name: $userName, Email: $userEmail");
+                                    print("User added: Name: $userName, Email: $userEmail, Contact: $userContact, Address: $userAddress");
                                     Fluttertoast.showToast(
                                         msg:
                                             "Congratulation $userName you are now a member",
@@ -242,17 +243,16 @@ class SignInUtil extends State<SignIn> {
                                         textColor: Colors.white,
                                         backgroundColor: Colors.pink);
 
+                                    await getAllDetails();
+
                                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => MenuPage()));
                                   } else if (buttonText == "LogIn"){
                                     String userName = name.text.toString().trim();
                                     String userEmail = email.text.toString().trim();
-                                    await getAllDetails();
-
-                                    print("Data fetched");
-
 
                                     bool userExit = allDetails.any((user) =>
-                                    user["name"] == userName && user["email"] == userEmail
+                                    user["name"].toString().trim().toLowerCase() == userName.toLowerCase().trim() &&
+                                        user["email"].toString().trim().toLowerCase() == userEmail.toLowerCase().trim()
                                     );
 
                                     if(userExit){
