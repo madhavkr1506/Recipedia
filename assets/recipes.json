@@ -91,6 +91,296 @@
         "Pour into a bowl and top with granola and fresh fruits.",
         "Serve immediately."
       ]
+    },
+    {
+      "name": "Grilled Chicken Caesar Salad",
+      "ingredients": [
+        "1 chicken breast",
+        "1 head romaine lettuce, chopped",
+        "1/2 cup croutons",
+        "1/4 cup grated Parmesan cheese",
+        "3 tbsp Caesar dressing",
+        "1 tbsp olive oil",
+        "Salt and pepper to taste"
+      ],
+      "instructions": [
+        "Season chicken breast with salt and pepper, then grill until cooked through.",
+        "Slice the grilled chicken into strips.",
+        "In a large bowl, toss romaine lettuce, croutons, and Parmesan cheese.",
+        "Add the grilled chicken strips and drizzle with Caesar dressing.",
+        "Toss gently and serve immediately."
+      ]
+    },
+    {
+      "name": "Spaghetti Aglio e Olio",
+      "ingredients": [
+        "200g spaghetti",
+        "4 cloves garlic, thinly sliced",
+        "1/4 cup olive oil",
+        "1/2 tsp red chili flakes",
+        "Salt to taste",
+        "Fresh parsley, chopped (for garnish)"
+      ],
+      "instructions": [
+        "Cook spaghetti according to package instructions.",
+        "Heat olive oil in a pan and sauté garlic until golden.",
+        "Add red chili flakes and cooked spaghetti to the pan.",
+        "Toss well to coat the spaghetti in the oil.",
+        "Season with salt and garnish with parsley.",
+        "Serve hot."
+      ]
+    },
+    {
+      "name": "Paneer Butter Masala with Naan",
+      "ingredients": [
+        "200g paneer, cubed",
+        "1 cup tomato puree",
+        "1/2 cup cream",
+        "1 onion, finely chopped",
+        "1 tsp ginger-garlic paste",
+        "1 tsp garam masala",
+        "1/2 tsp turmeric powder",
+        "1/2 tsp red chili powder",
+        "2 tbsp butter",
+        "Salt to taste",
+        "Naan (for serving)"
+      ],
+      "instructions": [
+        "Heat butter in a pan and sauté onions until golden.",
+        "Add ginger-garlic paste, turmeric, red chili powder, and garam masala. Cook for 2 minutes.",
+        "Add tomato puree and cook until the oil separates.",
+        "Add paneer cubes and cream, then simmer for 5 minutes.",
+        "Season with salt and serve hot with naan."
+      ]
+    },
+    {
+      "name": "Thai Green Curry with Jasmine Rice",
+      "ingredients": [
+        "1 cup jasmine rice",
+        "200g chicken or tofu, cubed",
+        "2 tbsp green curry paste",
+        "1 cup coconut milk",
+        "1 cup mixed vegetables (bell peppers, zucchini, etc.)",
+        "1 tbsp fish sauce (optional)",
+        "1 tbsp oil",
+        "Fresh basil leaves (for garnish)"
+      ],
+      "instructions": [
+        "Cook jasmine rice according to package instructions.",
+        "Heat oil in a pan and sauté green curry paste for 1-2 minutes.",
+        "Add chicken or tofu and cook until done.",
+        "Add coconut milk, vegetables, and fish sauce. Simmer for 10 minutes.",
+        "Serve hot with jasmine rice and garnish with basil leaves."
+      ]
+    },
+    {
+      "name": "Dal Tadka with Jeera Rice",
+      "ingredients": [
+        "1 cup yellow lentils (toor dal)",
+        "1/2 tsp turmeric powder",
+        "1 tsp cumin seeds",
+        "2 cloves garlic, minced",
+        "1 tomato, chopped",
+        "1 green chili, slit",
+        "2 tbsp ghee or oil",
+        "Salt to taste",
+        "Fresh coriander (for garnish)",
+        "1 cup basmati rice",
+        "1 tsp cumin seeds (for rice)"
+      ],
+      "instructions": [
+        "Cook lentils with turmeric and salt until soft.",
+        "Heat ghee in a pan and temper cumin seeds, garlic, and green chili.",
+        "Add tomatoes and cook until soft, then mix with cooked lentils.",
+        "For jeera rice, cook basmati rice and temper with cumin seeds.",
+        "Serve dal tadka with jeera rice, garnished with coriander."
+      ]
+    },
+    {
+      "name": "Loaded Nachos with Cheese & Salsa",
+      "ingredients": [
+        "1 bag tortilla chips",
+        "1 cup shredded cheese",
+        "1/2 cup salsa",
+        "1/4 cup sour cream",
+        "1/4 cup guacamole",
+        "1/4 cup jalapeños (optional)"
+      ],
+      "instructions": [
+        "Preheat oven to 180°C (350°F).",
+        "Spread tortilla chips on a baking tray and sprinkle with cheese.",
+        "Bake until cheese melts.",
+        "Top with salsa, sour cream, guacamole, and jalapeños.",
+        "Serve immediately."
+      ]
+    },
+    {
+      "name": "Vegetable Spring Rolls with Spicy Dip",
+      "ingredients": [
+        "10 spring roll wrappers",
+        "1 cup shredded cabbage",
+        "1/2 cup grated carrots",
+        "1/2 cup bean sprouts",
+        "1 tbsp soy sauce",
+        "1 tsp ginger-garlic paste",
+        "Oil for frying",
+        "2 tbsp chili sauce (for dip)"
+      ],
+      "instructions": [
+        "Sauté cabbage, carrots, and bean sprouts with soy sauce and ginger-garlic paste.",
+        "Place filling on spring roll wrappers and roll tightly.",
+        "Deep fry until golden and crispy.",
+        "Serve with chili sauce for dipping."
+      ]
+    },
+    {
+      "name": "Classic Margherita Pizza",
+      "ingredients": [
+        "1 pizza base",
+        "1/2 cup tomato sauce",
+        "1 cup shredded mozzarella cheese",
+        "Fresh basil leaves",
+        "1 tbsp olive oil",
+        "Salt to taste"
+      ],
+      "instructions": [
+        "Preheat oven to 220°C (425°F).",
+        "Spread tomato sauce on the pizza base.",
+        "Sprinkle mozzarella cheese and top with basil leaves.",
+        "Drizzle olive oil and bake for 10-12 minutes.",
+        "Serve hot."
+      ]
+    },
+    {
+      "name": "Samosa Chaat with Yogurt & Chutneys",
+      "ingredients": [
+        "2 samosas",
+        "1/2 cup yogurt",
+        "2 tbsp tamarind chutney",
+        "2 tbsp green chutney",
+        "1/4 cup sev (crispy noodles)",
+        "1/4 cup chopped onions",
+        "1/4 cup chopped tomatoes",
+        "Fresh coriander (for garnish)"
+      ],
+      "instructions": [
+        "Crush samosas into a bowl.",
+        "Top with yogurt, tamarind chutney, and green chutney.",
+        "Add onions, tomatoes, and sev.",
+        "Garnish with coriander and serve immediately."
+      ]
+    },
+    {
+      "name": "Bruschetta with Tomato & Basil",
+      "ingredients": [
+        "4 slices of baguette",
+        "2 tomatoes, diced",
+        "1/4 cup fresh basil, chopped",
+        "2 tbsp olive oil",
+        "1 clove garlic",
+        "Salt and pepper to taste"
+      ],
+      "instructions": [
+        "Toast baguette slices until crispy.",
+        "Rub garlic on the toasted bread.",
+        "Mix tomatoes, basil, olive oil, salt, and pepper.",
+        "Top the bread with the tomato mixture and serve."
+      ]
+    },
+    {
+      "name": "Grilled Salmon with Garlic Butter",
+      "ingredients": [
+        "2 salmon fillets",
+        "2 tbsp butter",
+        "2 cloves garlic, minced",
+        "1 tbsp lemon juice",
+        "Salt and pepper to taste",
+        "Fresh dill (for garnish)"
+      ],
+      "instructions": [
+        "Season salmon with salt and pepper.",
+        "Grill salmon until cooked through.",
+        "Melt butter in a pan and sauté garlic until fragrant.",
+        "Add lemon juice and drizzle over grilled salmon.",
+        "Garnish with dill and serve."
+      ]
+    },
+    {
+      "name": "Stuffed Bell Peppers with Quinoa Veggies",
+      "ingredients": [
+        "4 bell peppers",
+        "1 cup cooked quinoa",
+        "1/2 cup mixed vegetables (corn, peas, carrots)",
+        "1/2 cup shredded cheese",
+        "1 tsp olive oil",
+        "Salt and pepper to taste"
+      ],
+      "instructions": [
+        "Preheat oven to 190°C (375°F).",
+        "Cut the tops off bell peppers and remove seeds.",
+        "Mix quinoa, vegetables, and cheese. Stuff into bell peppers.",
+        "Drizzle with olive oil and bake for 25-30 minutes.",
+        "Serve hot."
+      ]
+    },
+    {
+      "name": "Butter Chicken with Tandoori Roti",
+      "ingredients": [
+        "200g chicken, cubed",
+        "1 cup tomato puree",
+        "1/2 cup cream",
+        "1 tsp garam masala",
+        "1/2 tsp turmeric powder",
+        "1/2 tsp red chili powder",
+        "2 tbsp butter",
+        "Salt to taste",
+        "Tandoori roti (for serving)"
+      ],
+      "instructions": [
+        "Marinate chicken with turmeric, red chili powder, and salt.",
+        "Heat butter in a pan and cook chicken until done.",
+        "Add tomato puree, garam masala, and cream. Simmer for 10 minutes.",
+        "Serve hot with tandoori roti."
+      ]
+    },
+    {
+      "name": "Mexican Tacos with Guacamole",
+      "ingredients": [
+        "4 taco shells",
+        "200g ground beef or chicken",
+        "1 tsp taco seasoning",
+        "1/2 cup shredded lettuce",
+        "1/4 cup diced tomatoes",
+        "1/4 cup shredded cheese",
+        "1/4 cup guacamole",
+        "1/4 cup salsa"
+      ],
+      "instructions": [
+        "Cook ground beef or chicken with taco seasoning.",
+        "Fill taco shells with the cooked meat.",
+        "Top with lettuce, tomatoes, cheese, guacamole, and salsa.",
+        "Serve immediately."
+      ]
+    },
+    {
+      "name": "Stir Fried Noodles with Tofu & Veggies",
+      "ingredients": [
+        "200g noodles",
+        "100g tofu, cubed",
+        "1 cup mixed vegetables (bell peppers, carrots, cabbage)",
+        "2 tbsp soy sauce",
+        "1 tbsp sesame oil",
+        "1 clove garlic, minced",
+        "1 tsp ginger, minced",
+        "1 green chili, chopped (optional)"
+      ],
+      "instructions": [
+        "Cook noodles according to package instructions.",
+        "Heat sesame oil and sauté garlic, ginger, and chili.",
+        "Add tofu and vegetables, then stir-fry for 5 minutes.",
+        "Add noodles and soy sauce, then toss well.",
+        "Serve hot."
+      ]
     }
   ]
 }
