@@ -290,6 +290,7 @@ class MenuPage_ extends State<MenuPage> {
         ),
         body: TabBarView(children: [
           Container(
+            padding: EdgeInsets.all(2),
             decoration: BoxDecoration(
               gradient: RadialGradient(colors: [Colors.white, Colors.purpleAccent], radius: 1.8)
             ),
@@ -334,6 +335,7 @@ class MenuPage_ extends State<MenuPage> {
             ),
           ),
           Container(
+            padding: EdgeInsets.all(2),
             decoration: BoxDecoration(
               gradient: RadialGradient(colors: [Colors.white, Colors.blueAccent], radius: 1.8)
             ),
@@ -376,6 +378,7 @@ class MenuPage_ extends State<MenuPage> {
                 }),
           ),
           Container(
+            padding: EdgeInsets.all(2),
             decoration: BoxDecoration(
               gradient: RadialGradient(colors: [Colors.white, Colors.red], radius: 1.8)
             ),
@@ -418,6 +421,7 @@ class MenuPage_ extends State<MenuPage> {
                 }),
           ),
           Container(
+            padding: EdgeInsets.all(2),
             decoration: BoxDecoration(
               gradient: RadialGradient(colors: [Colors.white, Colors.yellowAccent], radius: 1.8)
             ),
