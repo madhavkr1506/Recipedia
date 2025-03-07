@@ -119,7 +119,7 @@ class MenuPage_ extends State<MenuPage> {
                   ),
                 ),
                 SizedBox(
-                    height: 180,
+                    height: 170,
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: ListView.builder(
@@ -156,7 +156,7 @@ class MenuPage_ extends State<MenuPage> {
                   ),
                 ),
                 SizedBox(
-                    height: 180,
+                    height: 170,
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: ListView.builder(
@@ -184,7 +184,7 @@ class MenuPage_ extends State<MenuPage> {
                       ),
                     )),
                 SizedBox(
-                  height: 15,
+                  height: 10,
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -195,7 +195,7 @@ class MenuPage_ extends State<MenuPage> {
                       side: BorderSide(color: Colors.greenAccent, width: 2),
                       backgroundColor: Colors.white,
                       textStyle: TextStyle(
-                          fontSize: 15,
+                          fontSize: 14,
                           color: Colors.green,
                           fontStyle: FontStyle.normal)),
                 )
