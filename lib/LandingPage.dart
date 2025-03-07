@@ -46,7 +46,7 @@ class LandingPageUtil extends State<LandingPage> {
         backgroundColor: Colors.white,
         body: Container(
           decoration: BoxDecoration(
-            gradient: RadialGradient(colors: [Colors.purpleAccent, Colors.white], radius: 1.8)
+            gradient: RadialGradient(colors: [Colors.white, Colors.deepOrange], radius: 1.8)
           ),
           child: Center(
             child: Column(
