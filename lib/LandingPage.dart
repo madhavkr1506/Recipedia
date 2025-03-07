@@ -12,6 +12,9 @@ class Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(primaryColor: Colors.white,
+      brightness: Brightness.light,
+      ),
       debugShowCheckedModeBanner: false,
       home: LandingPage(),
     );
