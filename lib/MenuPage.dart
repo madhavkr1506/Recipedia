@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:recipe/SideBar.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -54,10 +54,6 @@ class MenuPage_ extends State<MenuPage> {
     }
   }
 
-  List<String> backgroundColor = ["red", "yellow","pink","white","green"];
-  List<String> foregroundColor = ["green", "white","pink","yellow","red"];
-
-
   Widget displayFood(String foodName, String image, List<String> ingredients,
       List<String> instruction) {
     return Card(
@@ -70,19 +66,20 @@ class MenuPage_ extends State<MenuPage> {
           height: 500,
           width: 300,
           decoration: BoxDecoration(
-            gradient: RadialGradient(colors: [Colors.greenAccent,Colors.white],
-            radius: 1.5,
-                center: Alignment.center
-            ),
-            border: Border.all(color: Colors.white, width: 2),
-            borderRadius: BorderRadius.circular(16)
-          ),
+              gradient: RadialGradient(
+                  colors: [Colors.greenAccent, Colors.white],
+                  radius: 1.5,
+                  center: Alignment.center),
+              border: Border.all(color: Colors.white, width: 2),
+              borderRadius: BorderRadius.circular(16)),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: CircleAvatar(
@@ -104,7 +101,8 @@ class MenuPage_ extends State<MenuPage> {
                     style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white),textAlign: TextAlign.center,
+                        color: Colors.white),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 SizedBox(
@@ -115,7 +113,10 @@ class MenuPage_ extends State<MenuPage> {
                   height: 20,
                   child: Text(
                     "Ingredients",
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
                   ),
                 ),
                 SizedBox(
@@ -152,7 +153,10 @@ class MenuPage_ extends State<MenuPage> {
                   height: 19,
                   child: Text(
                     "Instructions",
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
                   ),
                 ),
                 SizedBox(
@@ -190,7 +194,10 @@ class MenuPage_ extends State<MenuPage> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text("Close", style: TextStyle(color: Colors.black54),),
+                  child: Text(
+                    "Close",
+                    style: TextStyle(color: Colors.black54),
+                  ),
                   style: ElevatedButton.styleFrom(
                       side: BorderSide(color: Colors.greenAccent, width: 2),
                       backgroundColor: Colors.white,
@@ -274,17 +281,38 @@ class MenuPage_ extends State<MenuPage> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
+        drawer: SideBar(),
         appBar: AppBar(
-          leading: IconButton(onPressed: () {}, icon: Icon(Icons.list)),
+          leading: Builder(
+            builder: (context) => IconButton(
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                icon: Icon(Icons.list)),
+          ),
           title: Text("Food Menu"),
           bottom: const TabBar(tabs: [
-            Tab(icon: Icon(Icons.breakfast_dining, color: Colors.purpleAccent,)),
             Tab(
-              icon: Icon(Icons.lunch_dining, color: Colors.blueAccent,),
+                icon: Icon(
+              Icons.breakfast_dining,
+              color: Colors.purpleAccent,
+            )),
+            Tab(
+              icon: Icon(
+                Icons.lunch_dining,
+                color: Colors.blueAccent,
+              ),
             ),
-            Tab(icon: Icon(Icons.takeout_dining, color: Colors.red,)),
             Tab(
-              icon: Icon(Icons.dinner_dining, color: Colors.yellowAccent,),
+                icon: Icon(
+              Icons.takeout_dining,
+              color: Colors.red,
+            )),
+            Tab(
+              icon: Icon(
+                Icons.dinner_dining,
+                color: Colors.yellowAccent,
+              ),
             )
           ]),
         ),
@@ -292,8 +320,8 @@ class MenuPage_ extends State<MenuPage> {
           Container(
             padding: EdgeInsets.all(2),
             decoration: BoxDecoration(
-              gradient: RadialGradient(colors: [Colors.white, Colors.purpleAccent], radius: 1.8)
-            ),
+                gradient: RadialGradient(
+                    colors: [Colors.white, Colors.purpleAccent], radius: 1.8)),
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 300,
@@ -306,7 +334,7 @@ class MenuPage_ extends State<MenuPage> {
                     onFoodType(breakfastMenu[position]);
                   },
                   child: Container(
-                    color: Colors.white12,
+                      color: Colors.white12,
                       height: 250,
                       width: 200,
                       child: Card(
@@ -337,8 +365,8 @@ class MenuPage_ extends State<MenuPage> {
           Container(
             padding: EdgeInsets.all(2),
             decoration: BoxDecoration(
-              gradient: RadialGradient(colors: [Colors.white, Colors.blueAccent], radius: 1.8)
-            ),
+                gradient: RadialGradient(
+                    colors: [Colors.white, Colors.blueAccent], radius: 1.8)),
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 300,
@@ -347,7 +375,7 @@ class MenuPage_ extends State<MenuPage> {
                 itemCount: lunchMenu.length,
                 itemBuilder: (context, position) {
                   return GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       onFoodType(lunchMenu[position]);
                     },
                     child: Container(
@@ -380,8 +408,8 @@ class MenuPage_ extends State<MenuPage> {
           Container(
             padding: EdgeInsets.all(2),
             decoration: BoxDecoration(
-              gradient: RadialGradient(colors: [Colors.white, Colors.red], radius: 1.8)
-            ),
+                gradient: RadialGradient(
+                    colors: [Colors.white, Colors.red], radius: 1.8)),
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 300,
@@ -390,7 +418,7 @@ class MenuPage_ extends State<MenuPage> {
                 itemCount: snackMenu.length,
                 itemBuilder: (context, position) {
                   return GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       onFoodType(snackMenu[position]);
                     },
                     child: Container(
@@ -423,8 +451,8 @@ class MenuPage_ extends State<MenuPage> {
           Container(
             padding: EdgeInsets.all(2),
             decoration: BoxDecoration(
-              gradient: RadialGradient(colors: [Colors.white, Colors.yellowAccent], radius: 1.8)
-            ),
+                gradient: RadialGradient(
+                    colors: [Colors.white, Colors.yellowAccent], radius: 1.8)),
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 300,
@@ -433,7 +461,7 @@ class MenuPage_ extends State<MenuPage> {
                 itemCount: dinnerMenu.length,
                 itemBuilder: (context, position) {
                   return GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       onFoodType(dinnerMenu[position]);
                     },
                     child: Container(
@@ -459,12 +487,10 @@ class MenuPage_ extends State<MenuPage> {
                               )
                             ],
                           ),
-                        )
-                    ),
+                        )),
                   );
                 }),
           ),
-
         ]),
       ),
     );

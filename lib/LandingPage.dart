@@ -41,6 +41,9 @@ class LandingPageUtil extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
+
+
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
@@ -153,7 +156,7 @@ class LandingPageUtil extends State<LandingPage> {
                         },
                         child: Text(
                           "Explore Inside",
-                          style: TextStyle(color: Colors.purpleAccent),
+                          style: TextStyle(color: Colors.orange),
                         ),
                         style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.all(20),
@@ -161,9 +164,10 @@ class LandingPageUtil extends State<LandingPage> {
                               fontSize: 16,
                               fontWeight: FontWeight.normal,
                               fontStyle: FontStyle.normal),
-                          side: BorderSide(color: Colors.purpleAccent, width: 1),
-                          shadowColor: Colors.purpleAccent,
-                          overlayColor: Colors.purpleAccent,
+                          side: BorderSide(color: Colors.orange, width: 1),
+                          shadowColor: Colors.orange,
+                          overlayColor: Colors.orange,
+                          backgroundColor: Colors.white
                         ),
                       ),
                     ],
@@ -176,4 +180,6 @@ class LandingPageUtil extends State<LandingPage> {
       ),
     );
   }
+
+
 }
