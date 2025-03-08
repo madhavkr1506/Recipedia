@@ -25,9 +25,9 @@ class SettingUtil extends State<Setting> {
               Container(
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white, width: 0),
+                    border: Border.all(color: Colors.transparent),
                     color: Colors.transparent),
-                height: 800,
+
                 child: Column(
                   children: [
                     Padding(

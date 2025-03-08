@@ -319,12 +319,11 @@ class MenuPage_ extends State<MenuPage> {
         body: TabBarView(children: [
           Container(
             padding: EdgeInsets.all(2),
-            decoration: BoxDecoration(
-                gradient: RadialGradient(
-                    colors: [Colors.white, Colors.purpleAccent], radius: 1.8)),
+            decoration: BoxDecoration(color: Colors.white),
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 300,
+                  mainAxisExtent: 300,
                   mainAxisSpacing: 11,
                   crossAxisSpacing: 11),
               itemCount: breakfastMenu.length,
@@ -334,42 +333,52 @@ class MenuPage_ extends State<MenuPage> {
                     onFoodType(breakfastMenu[position]);
                   },
                   child: Container(
-                      color: Colors.white12,
-                      height: 250,
-                      width: 200,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              breakfastImg[position],
-                              fit: BoxFit.cover,
-                              height: 110,
-                              width: 110,
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              breakfastMenu[position],
-                              textAlign: TextAlign.center,
-                            )
-                          ],
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.white,
                         ),
-                      )),
+                        gradient: RadialGradient(colors: [
+                          Color.fromARGB(100, 126, 122, 113),
+                          Colors.grey
+                        ])),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CircleAvatar(
+                          radius: 78,
+                          backgroundColor: Colors.white,
+                          child: CircleAvatar(
+                            radius: 70,
+                            backgroundImage: AssetImage(
+                              breakfastImg[position],
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            breakfastMenu[position],
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontStyle: FontStyle.normal),
+                            textAlign: TextAlign.center,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                 );
               },
             ),
           ),
           Container(
             padding: EdgeInsets.all(2),
-            decoration: BoxDecoration(
-                gradient: RadialGradient(
-                    colors: [Colors.white, Colors.blueAccent], radius: 1.8)),
+            decoration: BoxDecoration(color: Colors.white),
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 300,
+                    mainAxisExtent: 300,
                     mainAxisSpacing: 11,
                     crossAxisSpacing: 11),
                 itemCount: lunchMenu.length,
@@ -379,40 +388,51 @@ class MenuPage_ extends State<MenuPage> {
                       onFoodType(lunchMenu[position]);
                     },
                     child: Container(
-                        height: 250,
-                        width: 200,
-                        child: Card(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                lunchImg[position],
-                                fit: BoxFit.cover,
-                                height: 110,
-                                width: 110,
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                lunchMenu[position],
-                                textAlign: TextAlign.center,
-                              )
-                            ],
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.white,
                           ),
-                        )),
+                          gradient: RadialGradient(colors: [
+                            Color.fromARGB(100, 126, 122, 113),
+                            Colors.grey
+                          ])),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 78,
+                            backgroundColor: Colors.white,
+                            child: CircleAvatar(
+                              radius: 70,
+                              backgroundImage: AssetImage(
+                                lunchImg[position],
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              lunchMenu[position],
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontStyle: FontStyle.normal),
+                              textAlign: TextAlign.center,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   );
                 }),
           ),
           Container(
             padding: EdgeInsets.all(2),
-            decoration: BoxDecoration(
-                gradient: RadialGradient(
-                    colors: [Colors.white, Colors.red], radius: 1.8)),
+            decoration: BoxDecoration(color: Colors.white),
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 300,
+                    mainAxisExtent: 300,
                     mainAxisSpacing: 11,
                     crossAxisSpacing: 11),
                 itemCount: snackMenu.length,
@@ -422,40 +442,51 @@ class MenuPage_ extends State<MenuPage> {
                       onFoodType(snackMenu[position]);
                     },
                     child: Container(
-                        height: 250,
-                        width: 200,
-                        child: Card(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                snackImg[position],
-                                fit: BoxFit.cover,
-                                height: 110,
-                                width: 110,
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                snackMenu[position],
-                                textAlign: TextAlign.center,
-                              )
-                            ],
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.white,
                           ),
-                        )),
+                          gradient: RadialGradient(colors: [
+                            Color.fromARGB(100, 126, 122, 113),
+                            Colors.grey
+                          ])),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 78,
+                            backgroundColor: Colors.white,
+                            child: CircleAvatar(
+                              radius: 70,
+                              backgroundImage: AssetImage(
+                                snackImg[position],
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              snackMenu[position],
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontStyle: FontStyle.normal),
+                              textAlign: TextAlign.center,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   );
                 }),
           ),
           Container(
             padding: EdgeInsets.all(2),
-            decoration: BoxDecoration(
-                gradient: RadialGradient(
-                    colors: [Colors.white, Colors.yellowAccent], radius: 1.8)),
+            decoration: BoxDecoration(color: Colors.white),
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 300,
+                    mainAxisExtent: 300,
                     mainAxisSpacing: 11,
                     crossAxisSpacing: 11),
                 itemCount: dinnerMenu.length,
@@ -465,29 +496,41 @@ class MenuPage_ extends State<MenuPage> {
                       onFoodType(dinnerMenu[position]);
                     },
                     child: Container(
-                        height: 250,
-                        width: 200,
-                        child: Card(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                dinnerMenuImg[position],
-                                fit: BoxFit.cover,
-                                height: 110,
-                                width: 110,
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                dinnerMenu[position],
-                                textAlign: TextAlign.center,
-                              )
-                            ],
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.white,
                           ),
-                        )),
+                          gradient: RadialGradient(colors: [
+                            Color.fromARGB(100, 126, 122, 113),
+                            Colors.grey
+                          ])),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 78,
+                            backgroundColor: Colors.white,
+                            child: CircleAvatar(
+                              radius: 70,
+                              backgroundImage: AssetImage(
+                                dinnerMenuImg[position],
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              dinnerMenu[position],
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontStyle: FontStyle.normal),
+                              textAlign: TextAlign.center,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   );
                 }),
           ),
