@@ -15,7 +15,7 @@ class AboutUtil extends State<About> {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: GestureDetector(
-          onTap: (){
+          onTap: () {
             setState(() {
               isToggled = !isToggled;
             });
@@ -24,9 +24,8 @@ class AboutUtil extends State<About> {
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.white),
-              color: Colors.white
-                ),
+                border: Border.all(color: Colors.white),
+                color: Colors.white),
             height: MediaQuery.of(context).size.height,
             width: double.infinity,
             child: Card(
@@ -60,15 +59,28 @@ class AboutUtil extends State<About> {
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      Padding(padding: EdgeInsets.all(16),
-                      child: TextButton(onPressed: (){
-                        Navigator.pop(context);
-                      }, child: Text("<-  Back", style: TextStyle(color: Colors.grey),),
-                      style: TextButton.styleFrom(
-                        side: BorderSide(color: Colors.white54),
-                        shadowColor: Colors.white, textStyle: TextStyle(fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 20)
-                      ),
-                      ),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: Padding(
+                          padding: EdgeInsets.all(16),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              "Back",
+                              style: TextStyle(color: Colors.white54),
+                            ),
+                            style: TextButton.styleFrom(
+                                side: BorderSide(color: Colors.transparent),
+                                backgroundColor: Colors.white12,
+                                shadowColor: Colors.white,
+                                textStyle: TextStyle(
+                                    fontStyle: FontStyle.normal,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 20)),
+                          ),
+                        ),
                       )
                     ],
                   ),
@@ -83,8 +95,6 @@ class AboutUtil extends State<About> {
             ),
           ),
         ),
-        
-        
       ),
     );
   }

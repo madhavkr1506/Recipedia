@@ -113,13 +113,13 @@ class SignInUtil extends State<SignIn> {
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5),
-                                borderSide: BorderSide(
-                                    color: Colors.pink, width: 2),
+                                borderSide:
+                                    BorderSide(color: Colors.pink, width: 2),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5),
-                                borderSide: BorderSide(
-                                    color: Colors.pink, width: 2),
+                                borderSide:
+                                    BorderSide(color: Colors.pink, width: 2),
                               )),
                         ),
                       ),
@@ -198,8 +198,7 @@ class SignInUtil extends State<SignIn> {
                             child: ElevatedButton(
                               onPressed: () async {
                                 if (buttonText == "SignUp") {
-                                  String userName =
-                                      name.text.toString().trim();
+                                  String userName = name.text.toString().trim();
                                   String userEmail =
                                       email.text.toString().trim();
                                   String userContact =
@@ -223,13 +222,10 @@ class SignInUtil extends State<SignIn> {
 
                                   await getAllDetails();
 
-                                  Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              MenuPage()));
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => MenuPage()));
                                 } else if (buttonText == "LogIn") {
-                                  String userName =
-                                      name.text.toString().trim();
+                                  String userName = name.text.toString().trim();
                                   String userEmail =
                                       email.text.toString().trim();
 
@@ -254,12 +250,10 @@ class SignInUtil extends State<SignIn> {
                                         backgroundColor: Colors.pink);
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
-                                            builder: (context) =>
-                                                MenuPage()));
+                                            builder: (context) => MenuPage()));
                                   } else {
                                     Fluttertoast.showToast(
-                                        msg:
-                                            "User not found! Please Sign Up",
+                                        msg: "User not found! Please Sign Up",
                                         toastLength: Toast.LENGTH_SHORT,
                                         gravity: ToastGravity.BOTTOM,
                                         textColor: Colors.white,
