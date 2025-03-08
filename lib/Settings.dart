@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:recipe/theme/theme.dart';
 
 class Setting extends StatefulWidget {
   const Setting({super.key});
@@ -9,6 +11,7 @@ class Setting extends StatefulWidget {
 
 class SettingUtil extends State<Setting> {
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: true);
     return Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -16,7 +19,7 @@ class SettingUtil extends State<Setting> {
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
             gradient: RadialGradient(colors: [
-              Colors.red,
+              Theme.of(context).scaffoldBackgroundColor,
               Colors.white,
             ], radius: 1.8),
           ),
@@ -27,7 +30,6 @@ class SettingUtil extends State<Setting> {
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.transparent),
                     color: Colors.transparent),
-
                 child: Column(
                   children: [
                     Padding(
@@ -41,8 +43,16 @@ class SettingUtil extends State<Setting> {
                               items: [
                                 PopupMenuItem(
                                   child: Text("Dark"),
+                                  onTap: () {
+                                    themeProvider.toggleTheme(true);
+                                  },
                                 ),
-                                PopupMenuItem(child: Text("Light"))
+                                PopupMenuItem(
+                                  child: Text("Light"),
+                                  onTap: () {
+                                    themeProvider.toggleTheme(false);
+                                  },
+                                )
                               ]);
                           setState(() {});
                         },

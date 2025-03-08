@@ -1,25 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
+import 'package:provider/provider.dart';
 import 'package:recipe/SignInPage.dart';
+import 'package:recipe/theme/theme.dart';
 
-void main() {
-  runApp(Page());
-}
-
-class Page extends StatelessWidget {
-  const Page({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.white,
-      brightness: Brightness.light,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: LandingPage(),
-    );
-  }
-}
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -40,17 +25,14 @@ class LandingPageUtil extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-
-
-
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.white,
+    return Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: Container(
           decoration: BoxDecoration(
-            gradient: RadialGradient(colors: [Colors.white, Colors.deepOrange], radius: 1.8)
-          ),
+              gradient: RadialGradient(colors: [
+            Theme.of(context).scaffoldBackgroundColor,
+            Colors.deepOrange
+          ], radius: 1.8)),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -117,7 +99,10 @@ class LandingPageUtil extends State<LandingPage> {
                     ),
                   ),
                 ),
-                Divider(color: Colors.white,thickness: 2,),
+                Divider(
+                  color: Colors.white,
+                  thickness: 2,
+                ),
                 Container(
                   margin: EdgeInsets.only(top: 20),
                   height: 160,
@@ -138,12 +123,7 @@ class LandingPageUtil extends State<LandingPage> {
                         alignment: Alignment.center,
                         child: Text(
                           "A waffle is like a pancake with a syrup trap",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FontStyle.normal,
-                              color: Colors.white),
-                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 22, fontStyle: FontStyle.normal, fontWeight: FontWeight.w400),textAlign: TextAlign.center,
                         ),
                       ),
                       SizedBox(
@@ -151,24 +131,23 @@ class LandingPageUtil extends State<LandingPage> {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => SignIn()));
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => SignIn()));
                         },
                         child: Text(
                           "Explore Inside",
-                          style: TextStyle(color: Colors.orange),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                         style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.all(20),
-                          textStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal,
-                              fontStyle: FontStyle.normal),
-                          side: BorderSide(color: Colors.orange, width: 1),
-                          shadowColor: Colors.orange,
-                          overlayColor: Colors.orange,
-                          backgroundColor: Colors.white
-                        ),
+                            padding: EdgeInsets.all(20),
+                            textStyle: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.normal,
+                                fontStyle: FontStyle.normal),
+                            side: BorderSide(color: Colors.orange, width: 1),
+                            shadowColor: Colors.orange,
+                            overlayColor: Colors.orange,
+                            backgroundColor: Colors.transparent),
                       ),
                     ],
                   ),
@@ -177,9 +156,6 @@ class LandingPageUtil extends State<LandingPage> {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
-
-
 }

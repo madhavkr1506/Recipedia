@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/AboutMe.dart';
+import 'package:recipe/Policies.dart';
 import 'package:recipe/Settings.dart';
 
 class SideBar extends StatefulWidget {
@@ -15,7 +16,7 @@ class SideBarUtil extends State<SideBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Drawer(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -78,7 +79,9 @@ class SideBarUtil extends State<SideBar> {
               leading: Icon(Icons.policy, color: Colors.deepOrange),
               // Warnings, legal terms
               title: Text("Policies"),
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => Policy()));
+              },
             ),
             Divider(height: 1),
             ListTile(

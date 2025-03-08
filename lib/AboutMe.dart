@@ -24,8 +24,8 @@ class AboutUtil extends State<About> {
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: Colors.white),
-                color: Colors.white),
+                border: Border.all(color: Theme.of(context).scaffoldBackgroundColor),
+                color: Theme.of(context).scaffoldBackgroundColor),
             height: MediaQuery.of(context).size.height,
             width: double.infinity,
             child: Card(

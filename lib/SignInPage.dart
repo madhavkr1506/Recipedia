@@ -39,7 +39,7 @@ class SignInUtil extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
@@ -48,7 +48,7 @@ class SignInUtil extends State<SignIn> {
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
               gradient: RadialGradient(
-                  colors: [Colors.purple, Colors.white],
+                  colors: [Theme.of(context).scaffoldBackgroundColor, Colors.white],
                   center: Alignment.center,
                   radius: 1.2)),
           child: Column(
@@ -299,7 +299,7 @@ class SignInUtil extends State<SignIn> {
                   },
                   child: Text(
                     "Already a member",
-                    style: TextStyle(color: Colors.white),
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   style: TextButton.styleFrom(
                       textStyle: TextStyle(
@@ -320,7 +320,7 @@ class SignInUtil extends State<SignIn> {
                   },
                   child: Text(
                     "Not yet registered? SignUp",
-                    style: TextStyle(color: Colors.white),
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   style: TextButton.styleFrom(
                       textStyle: TextStyle(

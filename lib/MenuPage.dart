@@ -281,6 +281,7 @@ class MenuPage_ extends State<MenuPage> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         drawer: SideBar(),
         appBar: AppBar(
           leading: Builder(
@@ -319,7 +320,7 @@ class MenuPage_ extends State<MenuPage> {
         body: TabBarView(children: [
           Container(
             padding: EdgeInsets.all(2),
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 300,
@@ -374,7 +375,7 @@ class MenuPage_ extends State<MenuPage> {
           ),
           Container(
             padding: EdgeInsets.all(2),
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 300,
@@ -428,7 +429,7 @@ class MenuPage_ extends State<MenuPage> {
           ),
           Container(
             padding: EdgeInsets.all(2),
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 300,
@@ -482,7 +483,7 @@ class MenuPage_ extends State<MenuPage> {
           ),
           Container(
             padding: EdgeInsets.all(2),
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 300,
