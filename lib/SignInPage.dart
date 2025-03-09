@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 import 'package:recipe/MenuPage.dart';
+import 'package:recipe/UserProvider.dart';
 import 'package:recipe/data/local/DBHelper.dart';
 
 class SignIn extends StatefulWidget {
@@ -212,6 +214,8 @@ class SignInUtil extends State<SignIn> {
                                       country: userAddress);
                                   print(
                                       "User added: Name: $userName, Email: $userEmail, Contact: $userContact, Address: $userAddress");
+
+                                  Provider.of<UserProvider>(context, listen: false).setUser(userName, userEmail);
                                   Fluttertoast.showToast(
                                       msg:
                                           "Congratulation $userName you are now a member",
@@ -225,10 +229,9 @@ class SignInUtil extends State<SignIn> {
                                   Navigator.of(context).push(MaterialPageRoute(
                                       builder: (context) => MenuPage()));
                                 } else if (buttonText == "LogIn") {
-                                  String userName = name.text.toString().trim();
+                                  String userName = name.text.toString();
                                   String userEmail =
-                                      email.text.toString().trim();
-
+                                      email.text.toString();
                                   bool userExit = allDetails.any((user) =>
                                       user["name"]
                                               .toString()
@@ -242,6 +245,7 @@ class SignInUtil extends State<SignIn> {
                                           userEmail.toLowerCase().trim());
 
                                   if (userExit) {
+                                    Provider.of<UserProvider>(context, listen: false).setUser(userName, userEmail);
                                     Fluttertoast.showToast(
                                         msg: "Welcome back Mr. $userName",
                                         toastLength: Toast.LENGTH_SHORT,

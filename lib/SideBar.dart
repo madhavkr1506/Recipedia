@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:recipe/AboutMe.dart';
 import 'package:recipe/Policies.dart';
 import 'package:recipe/Settings.dart';
+import 'package:recipe/UserProvider.dart';
+import 'package:share_plus/share_plus.dart';
 
 class SideBar extends StatefulWidget {
   const SideBar({super.key});
@@ -14,8 +18,8 @@ class SideBarUtil extends State<SideBar> {
   bool isToggled = false;
 
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Drawer(
+    var userProvider = Provider.of<UserProvider>(context);
+    return Drawer(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         child: ListView(
           padding: EdgeInsets.zero,
@@ -28,12 +32,12 @@ class SideBarUtil extends State<SideBar> {
               },
               child: UserAccountsDrawerHeader(
                 accountName: Text(
-                  "Madhav Kumar",
-                  style: TextStyle(color: Colors.white),
+                  userProvider.userName,
+                  style: TextStyle(),
                 ),
                 accountEmail: Text(
-                  "madhavkr9153276724@gmail.com",
-                  style: TextStyle(color: Colors.white),
+                  userProvider.userEmail,
+                  style: TextStyle(),
                 ),
                 currentAccountPicture: CircleAvatar(
                   child: ClipOval(
@@ -88,25 +92,31 @@ class SideBarUtil extends State<SideBar> {
               leading: Icon(Icons.share, color: Colors.green),
               // Sharing and communication
               title: Text("Share"),
-              onTap: () {},
+              onTap: () {
+                Share.share("Share this app:");
+              },
             ),
             Divider(height: 1),
             ListTile(
               leading: Icon(Icons.logout, color: Colors.red),
               // Log out is usually red
               title: Text("Log Out"),
-              onTap: () {},
+              onTap: () {
+                userProvider.setUser("Guest", "guest@example.com");
+
+              },
             ),
             Divider(height: 1),
             ListTile(
               leading: Icon(Icons.exit_to_app, color: Colors.black),
               // Exit is commonly black
               title: Text("Exit"),
-              onTap: () {},
+              onTap: () {
+                SystemNavigator.pop();
+              },
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }
