@@ -296,23 +296,23 @@ class MenuPage_ extends State<MenuPage> {
             Tab(
                 icon: Icon(
               Icons.breakfast_dining,
-              color: Colors.purpleAccent,
+              color: Colors.red,
             )),
             Tab(
               icon: Icon(
                 Icons.lunch_dining,
-                color: Colors.blueAccent,
+                color: Colors.deepOrange,
               ),
             ),
             Tab(
                 icon: Icon(
               Icons.takeout_dining,
-              color: Colors.red,
+              color: Colors.greenAccent,
             )),
             Tab(
               icon: Icon(
                 Icons.dinner_dining,
-                color: Colors.yellowAccent,
+                color: Colors.redAccent,
               ),
             )
           ]),
@@ -320,7 +320,8 @@ class MenuPage_ extends State<MenuPage> {
         body: TabBarView(children: [
           Container(
             padding: EdgeInsets.all(2),
-            decoration: BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
+            decoration:
+                BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 300,
@@ -336,11 +337,11 @@ class MenuPage_ extends State<MenuPage> {
                   child: Container(
                     decoration: BoxDecoration(
                         border: Border.all(
-                          color: Colors.white,
+                          color: Colors.transparent,
                         ),
                         gradient: RadialGradient(colors: [
-                          Color.fromARGB(100, 126, 122, 113),
-                          Colors.grey
+                          Colors.white,
+                          Theme.of(context).scaffoldBackgroundColor
                         ])),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -356,11 +357,15 @@ class MenuPage_ extends State<MenuPage> {
                             ),
                           ),
                         ),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Align(
                           alignment: Alignment.center,
                           child: Text(
                             breakfastMenu[position],
                             style: TextStyle(
+                                fontSize: 18,
                                 fontWeight: FontWeight.w400,
                                 fontStyle: FontStyle.normal),
                             textAlign: TextAlign.center,
@@ -375,7 +380,8 @@ class MenuPage_ extends State<MenuPage> {
           ),
           Container(
             padding: EdgeInsets.all(2),
-            decoration: BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
+            decoration:
+                BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 300,
@@ -391,11 +397,11 @@ class MenuPage_ extends State<MenuPage> {
                     child: Container(
                       decoration: BoxDecoration(
                           border: Border.all(
-                            color: Colors.white,
+                            color: Colors.transparent,
                           ),
                           gradient: RadialGradient(colors: [
-                            Color.fromARGB(100, 126, 122, 113),
-                            Colors.grey
+                            Colors.white,
+                            Theme.of(context).scaffoldBackgroundColor
                           ])),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -411,11 +417,13 @@ class MenuPage_ extends State<MenuPage> {
                               ),
                             ),
                           ),
+                          SizedBox(height: 20,),
                           Align(
                             alignment: Alignment.center,
                             child: Text(
                               lunchMenu[position],
                               style: TextStyle(
+                                fontSize: 18,
                                   fontWeight: FontWeight.w400,
                                   fontStyle: FontStyle.normal),
                               textAlign: TextAlign.center,
@@ -429,7 +437,8 @@ class MenuPage_ extends State<MenuPage> {
           ),
           Container(
             padding: EdgeInsets.all(2),
-            decoration: BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
+            decoration:
+                BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 300,
@@ -445,11 +454,11 @@ class MenuPage_ extends State<MenuPage> {
                     child: Container(
                       decoration: BoxDecoration(
                           border: Border.all(
-                            color: Colors.white,
+                            color: Colors.transparent,
                           ),
                           gradient: RadialGradient(colors: [
-                            Color.fromARGB(100, 126, 122, 113),
-                            Colors.grey
+                            Colors.white,
+                            Theme.of(context).scaffoldBackgroundColor
                           ])),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -465,11 +474,13 @@ class MenuPage_ extends State<MenuPage> {
                               ),
                             ),
                           ),
+                          SizedBox(height: 20,),
                           Align(
                             alignment: Alignment.center,
                             child: Text(
                               snackMenu[position],
                               style: TextStyle(
+                                fontSize: 18,
                                   fontWeight: FontWeight.w400,
                                   fontStyle: FontStyle.normal),
                               textAlign: TextAlign.center,
@@ -483,7 +494,8 @@ class MenuPage_ extends State<MenuPage> {
           ),
           Container(
             padding: EdgeInsets.all(2),
-            decoration: BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
+            decoration:
+                BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 300,
@@ -499,11 +511,11 @@ class MenuPage_ extends State<MenuPage> {
                     child: Container(
                       decoration: BoxDecoration(
                           border: Border.all(
-                            color: Colors.white,
+                            color: Colors.transparent,
                           ),
                           gradient: RadialGradient(colors: [
-                            Color.fromARGB(100, 126, 122, 113),
-                            Colors.grey
+                            Colors.white,
+                            Theme.of(context).scaffoldBackgroundColor
                           ])),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -519,11 +531,13 @@ class MenuPage_ extends State<MenuPage> {
                               ),
                             ),
                           ),
+                          SizedBox(height: 20,),
                           Align(
                             alignment: Alignment.center,
                             child: Text(
                               dinnerMenu[position],
                               style: TextStyle(
+                                fontSize: 18,
                                   fontWeight: FontWeight.w400,
                                   fontStyle: FontStyle.normal),
                               textAlign: TextAlign.center,
